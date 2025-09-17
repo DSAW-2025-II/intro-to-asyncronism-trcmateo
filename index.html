@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pokédex — Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="logo">
+        <h1>Pokédex</h1>
+      </div>
+      <div class="search-row">
+        <input id="searchInput" placeholder="Search by name or id" aria-label="Search Pokémon"/>
+        <div class="filters-inline">
+          <select id="filterBy">
+            <option value="">No filter</option>
+            <option value="type">Type</option>
+            <option value="generation">Generation</option>
+            <option value="height">Height</option>
+            <option value="weight">Weight</option>
+            <option value="forms">Special Forms</option>
+          </select>
+          <select id="filterValue">
+            <option value="">-- choose filter --</option>
+          </select>
+          <button id="orderAsc" title="Order: First to Last">↑ First to Last</button>
+          <button id="orderDesc" title="Order: Last to First">↓ Last to First</button>
+          <button id="clearFilters" title="Clear filters">Clear filter</button>
+        </div>
+        <!-- Mobile hamburger menu -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+      </div>
+      <!-- Mobile filters menu -->
+      <div class="mobile-filters" id="mobileFilters">
+        <div class="mobile-filters-content">
+          <select id="mobileFilterBy">
+            <option value="">No filter</option>
+            <option value="type">Type</option>
+            <option value="generation">Generation</option>
+            <option value="height">Height</option>
+            <option value="weight">Weight</option>
+            <option value="forms">Special Forms</option>
+          </select>
+          <select id="mobileFilterValue">
+            <option value="">-- choose filter --</option>
+          </select>
+          <div class="mobile-buttons">
+            <button id="mobileOrderAsc" title="Order: First to Last">↑ First to Last</button>
+            <button id="mobileOrderDesc" title="Order: Last to First">↓ Last to First</button>
+            <button id="mobileClearFilters" title="Clear filters">Clear filter</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Left column: list -->
+      <aside class="left-col">
+        <ul id="pokemonList" class="pokemon-list" aria-live="polite"></ul>
+      </aside>
+
+      <!-- Right column: Gameboy -->
+      <aside class="right-col">
+        <div class="gameboy-wrap">
+          <!-- Custom Gameboy Device -->
+          <div class="gameboy-device">
+            <div class="gameboy-screen" id="gameboyScreen" role="region" aria-label="Gameboy screen">
+              <div id="gameboyContent" class="gameboy-content">
+                <!-- content injected by JS -->
+              </div>
+            </div>
+            <div class="gameboy-buttons">
+              <div class="gameboy-btn"></div>
+              <div class="gameboy-btn secondary" id="randomPokemonBtn"></div>
+              <div class="gameboy-btn"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
